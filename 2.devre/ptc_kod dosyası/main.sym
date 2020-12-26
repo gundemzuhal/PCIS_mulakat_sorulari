@@ -1,0 +1,127 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2
+01B     CCP_2_LOW
+01C     CCP_2_HIGH
+020-021 okunan
+022-025 sicaklik
+026-029 R1
+02A-02D A
+02E-031 B
+032-035 c
+036-039 @DIV3232.P1
+036-039 atan2.y
+036     @delay_ms1.P1
+036     MAIN.@SCRATCH1
+037     MAIN.@SCRATCH2
+038     MAIN.@SCRATCH3
+039     MAIN.@SCRATCH4
+03A-03D log.x
+03A-03D atan2.x
+03A-03D @DTOF.P1
+03A-03D @DIV3232.P2
+03E-041 atan2.z
+03E-041 log.y
+03E     @DIV3232.@SCRATCH1
+03F     @DIV3232.@SCRATCH2
+040     @DIV3232.@SCRATCH3
+041     @DIV3232.@SCRATCH4
+042.0   atan2.sign
+042-045 log.res
+042     @DIV3232.@SCRATCH5
+043     atan2.quad
+046-049 log.r
+04A-04D log.y2
+04E     log.n
+04F-050 @SITOF.P1
+04F-052 @FLT.P2
+04F-052 @MULFF.P3
+04F     log.@SCRATCH1
+050     log.@SCRATCH2
+051     log.@SCRATCH3
+052     log.@SCRATCH4
+053-056 @MULFF.P1
+053-056 @DIVFF.P2
+053-056 @ADDFF.P3
+053-056 @FLT.P4
+057-05A @ADDFF.P1
+057-05A @DIVFF.P2
+057     @FLT.@SCRATCH1
+057     @MULFF.@SCRATCH1
+058     @FLT.@SCRATCH2
+058     @MULFF.@SCRATCH2
+059     @MULFF.@SCRATCH3
+05A     @MULFF.@SCRATCH4
+05B     @MULFF.@SCRATCH5
+05B     @ADDFF.@SCRATCH1
+05B     @DIVFF.@SCRATCH1
+05C     @ADDFF.@SCRATCH2
+05C     @DIVFF.@SCRATCH2
+05D     @ADDFF.@SCRATCH3
+05D     @DIVFF.@SCRATCH3
+05E     @ADDFF.@SCRATCH4
+05E     @DIVFF.@SCRATCH4
+05F     @ADDFF.@SCRATCH5
+05F     @DIVFF.@SCRATCH5
+060     @ADDFF.@SCRATCH6
+060     @DIVFF.@SCRATCH6
+061     @ADDFF.@SCRATCH7
+062     @ADDFF.@SCRATCH8
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  @DIV3232
+000055  @DTOF
+000072  @ADDFF
+0001B3  @FLT
+0001F2  @DIVFF
+0002BC  @MULFF
+000331  @SITOF
+000356  log
+0004FC  @delay_ms1
+000513  MAIN
+000513  @cinit1
+000537  @cinit2
+
+Project Directory:
+    C:\Users\ZUHAL\Desktop\Zuhal_Gundem_calisma\2.devre\
+
+Project Files:
+    main.c                                                  [21-Ara-20 05:51  CRC=1D82BB02]
+    D:\Program Files (x86)\PICC\Devices\16f877.h            [21-Haz-13 16:04  CRC=A355A189]
+    D:\Program Files (x86)\PICC\Drivers\math.h              [28-Eyl-12 11:35  CRC=546412C9]
+
+Source signature=69A0821D
+
+Units:
+    main (main)
+
+Compiler Settings:
+    Processor:      PIC16F877
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   main.xsym
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.ccspjt
+    Call Tree:   main.tre
+    Statistics:  main.STA

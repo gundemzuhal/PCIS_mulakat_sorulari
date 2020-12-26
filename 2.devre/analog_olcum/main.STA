@@ -1,0 +1,67 @@
+
+ROM used:   1653/8192 (20%)
+            1653/8192 (20%) including unused fragments
+
+            0.5 Average locations per line
+            4.4 Average locations per statement
+
+RAM used:   27/368 (7%) at main() level
+            53/368 (14%) worst case
+
+Stack used: 1 worst case (0 in main + 1 for interrupts)
+Stack size: 8
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   85    38  10  main.c
+  629     0   0  D:\Program Files (x86)\PICC\Devices\16f877.h
+ 2229   257  68  D:\Program Files (x86)\PICC\Drivers\math.h
+  456    84  22  D:\Program Files (x86)\PICC\Drivers\lcd.c
+----- -----
+ 3399   379 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     29   2    2             @ITOF
+0    117   7   13             @MULFF
+0    321  19   16             @ADDFF
+0    202  12   14             @DIVFF
+0     21   1    1             @delay_ms1
+0      8   0    0             @const764
+ Inline         3   596  5.9  lcd_read_byte
+0      6   0    0    59  4.2  lcd_read_nibble
+0     12   1    1   179  3.3  lcd_send_nibble
+0     64   4    3   460  4.7  lcd_send_byte
+0     51   3    2   667  5.9  lcd_init
+0     18   1    4   208  6.3  lcd_gotoxy
+0     44   3    1   354  4.7  lcd_putc
+0      4   0    0     3  0.0  ADC_Kesmesi
+0    404  24    0  1228  5.7  MAIN
+ Inline         5             @FTOSD
+0     79   5   13             @DIV3232
+0    224  14   13             @PRINTF_L32D_782FPFPF
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               9
+    Statements              379
+    Comments                487
+    Volume (V)              5579
+    Difficulty (D)          38.9
+    Effort to implement (E) 216883
+    Time to implement (T)   3 hours, 21 minutes
+    Est Delivered Bugs (B)  1
+    Cyclomatic Complexity   10
+    Maintainability (MI)    31
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-00030    45  0  
+00031-007FF  1604  395  
+00800-00FFF     0  2048  
+01000-017FF     0  2048  
+01800-01FFF     0  2048  
+
+
+

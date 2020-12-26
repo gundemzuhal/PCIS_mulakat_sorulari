@@ -1,0 +1,50 @@
+#include <16f877.h>
+#fuses XT, NOWDT, NOPROTECT, NOBROwNOUT,NOLVP,NOPUT,NOWRT,NODEBUG,NOCPD
+
+#device ADC=10
+#include <math.h>
+#fuses HS
+#use delay(clock=4000000)
+
+#use fast_io(a)
+#use fast_io(b)
+
+#define use_portb_lcd TRUE
+#include <lcd.c>
+   
+   float R1=1000,Rx;
+   float A=31.03434454e-03, B= -52.97989246e-04, C=270.2612064e-07;
+
+   
+   float sicaklik;
+      
+   
+   
+   
+   
+void main()
+{
+   
+   set_tris_a(0b00000001);
+   set_tris_b(0b00000000);
+   setup_adc(adc_clock_div_32);
+   setup_adc_ports(ALL_ANALOG);
+   
+   lcd_init();
+
+   while(TRUE)
+   {
+      set_adc_channel(0);
+      delay_us(20);
+     int okunan=read_adc();
+     
+     
+      sicaklik = log(((1024 / okunan) - R1));
+     sicaklik = 1 / (A + (B + (C * sicaklik * sicaklik)) * sicaklik);
+     sicaklik = sicaklik - 273.15;
+    
+      printf(lcd_putc, "\f%i", okunan);
+      delay_ms(100);
+   }
+
+}

@@ -1,0 +1,70 @@
+#include <16f877.h>
+#fuses XT, NOWDT, NOPROTECT, NOBROwNOUT,NOLVP,NOPUT,NOWRT,NODEBUG,NOCPD
+
+#device ADC=10
+#include <math.h>
+#fuses HS
+#use delay(clock=4000000)
+
+#use fast_io(a)
+#use fast_io(b)
+
+#define use_portb_lcd TRUE
+#include <lcd.c>
+   
+   //float R1=1000,Rx;
+   //float A=31.03434454e-03, B= -52.97989246e-04, C=270.2612064e-07;
+
+   unsigned long int okunan;
+   float sicaklik,vo;
+   
+      float R1=10000;
+      float A=31.03434454e-03, B= -52.97989246e-04, C=270.2612064e-07;
+
+
+#INT_AD
+
+void ADC_Kesmesi ( )
+{
+}
+
+
+
+   
+void main()
+{
+   setup_psp(PSP_DISABLED);
+   setup_spi(SPI_SS_DISABLED);
+   setup_timer_l{Tl_DISABLED);
+   setup_timer_2(T2_DISABLED,0,l) ;
+   setup_CCP1(CCP_OFF) ;
+   setup_CCP2(CCP_OFF) ;
+
+   set_tris_a(0b00000001);
+   set_tris_b(0b00000000);
+   setup_adc(adc_clock_div_32);
+   setup_adc_ports(ALL_ANALOG);
+   
+   enable_interrupts(INT_AD);
+   enable_interrupts(GLOBAL);
+   
+   lcd_init();
+
+   while(TRUE)
+   {
+      set_adc_channel(0);
+      delay_us(20);
+      okunan=read_adc();
+      //vo= okunan * 0.0048828125;
+     
+      sicaklik = log(((1024 / okunan) - R1));
+     sicaklik = 1 / (A + (B + (C * sicaklik * sicaklik)) * sicaklik);
+      printf(lcd_putc, "\f%f", sicaklik);
+     sicaklik = sicaklik - 273.15;
+    // okunan =1024-okunan;
+      
+      printf(lcd_putc, "\n%f", sicaklik);
+      delay_ms(100);
+   }
+
+}
